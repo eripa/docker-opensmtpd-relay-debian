@@ -8,7 +8,7 @@ This container can be used for your hobby project to add mail out functionality.
 
  * Debian Jessie
  * arm build uses armv7/armhf-debian:jessie
- * x86_64 uses 
+ * x86_64 uses debian:jessie
  * Must be configured to work! 
  * Ports 25 and 587 are exposed
  * Do **not** map the ports to outside world. The relay is configured to accept **ALL** requests without auth. Use internal Docker network

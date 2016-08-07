@@ -1,7 +1,7 @@
 version: "2"
 services:
   opensmtpd:
-    image: opensmtpd-debian-arm
+    image: opensmtpd-relay-debian:intel
     environment:
       SMTP_SERVER: "mail.example.com"
       SMTP_USERNAME: "user@example.com"

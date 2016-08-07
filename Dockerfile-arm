@@ -1,5 +1,7 @@
-FROM debian:jessie
+FROM armv7/armhf-debian:jessie
 MAINTAINER Eric Ripa <eric@ripa.io>
+
+COPY qemu-arm-static /usr/bin/qemu-arm-static
 
 RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
 RUN apt-get -q update \
@@ -14,5 +16,7 @@ COPY ./entrypoint.sh /
 
 VOLUME ["/etc/smtpd", "/var/vmail"]
 EXPOSE 25 587
+
+RUN /bin/rm -f /usr/bin/qemu-arm-static
 
 ENTRYPOINT ["/entrypoint.sh"]
