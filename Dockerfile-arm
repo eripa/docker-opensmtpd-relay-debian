@@ -1,7 +1,8 @@
-FROM armv7/armhf-debian:jessie
-MAINTAINER Eric Ripa <eric@ripa.io>
+FROM resin/armv7hf-debian-qemu
 
-COPY qemu-arm-static /usr/bin/qemu-arm-static
+RUN [ "cross-build-start" ]
+
+MAINTAINER Eric Ripa <eric@ripa.io>
 
 RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
 RUN apt-get -q update \
@@ -17,6 +18,6 @@ COPY ./entrypoint.sh /
 VOLUME ["/etc/smtpd", "/var/vmail"]
 EXPOSE 25 587
 
-RUN /bin/rm -f /usr/bin/qemu-arm-static
+RUN [ "cross-build-end" ]
 
 ENTRYPOINT ["/entrypoint.sh"]
