@@ -16,19 +16,18 @@ This container can be used for your hobby project to add mail out functionality.
 ## Flow
 
                                         +-------------+                +-----------------+
-                                            +-----------------+                 |             |                |                 |
-                                                |                 |                 |  OpenSMTPd  |                |  external SMTP  |
-                                                    | your container  | smtp request    |  Container  |                |  server, such   |
-                                                        | that needs mail +----------------->             +--------------->+  as Gmail       |
-                                                            | out             |  to smtp://smtpd+-------------+                |                 |
-                                                                |                 |                 | name: smtpd |                |                 |
-                                                                    +-----------------+                 +-------------+                +-----------------+
-
-                                                                        +-------------------------------------------------+
-                                                                            |                                                 |
-                                                                                |                   Docker network                |
-                                                                                    |                                                 |
-                                                                                        +-------------------------------------------------+
+    +-----------------+                 |             |                |                 |
+    |                 |                 |  OpenSMTPd  |                |  external SMTP  |
+    | your container  | smtp request    |  Container  |                |  server, such   |
+    | that needs mail +----------------->             +--------------->+  as Gmail       |
+    | out             |  to smtp://smtpd+-------------+                |                 |
+    |                 |                 | name: smtpd |                |                 |
+    +-----------------+                 +-------------+                +-----------------+
+    +-------------------------------------------------+
+    |                                                 |
+    |                   Docker network                |
+    |                                                 |
+    +-------------------------------------------------+
 
 ## Configuration
 
