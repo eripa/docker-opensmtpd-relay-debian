@@ -14,9 +14,13 @@ qemu_user_static_version="v2.6.0"
           tar xfvz "x86_64_qemu-arm-static.tar.gz"
           /bin/rm -f "x86_64_qemu-arm-static.tar.gz"
         fi
-        docker build -q -t opensmtpd-relay-debian:arm -f Dockerfile-arm .
+        docker build -q -t eripa/opensmtpd-relay-debian:${arch} -f Dockerfile-arm .
+        docker push eripa/opensmtpd-relay-debian:${arch}
     else
-      docker build -q -t opensmtpd-relay-debian:intel -f Dockerfile .
+      docker build -q -t eripa/opensmtpd-relay-debian:${arch} -f Dockerfile .
+      docker tag eripa/opensmtpd-relay-debian:${arch} eripa/opensmtpd-relay-debian:latest
+      docker push eripa/opensmtpd-relay-debian:${arch}
+      docker push eripa/opensmtpd-relay-debian:latest
     fi
   done
 )
