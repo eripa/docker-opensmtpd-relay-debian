@@ -1,0 +1,10 @@
+version: "2"
+services:
+  opensmtpd:
+    image: opensmtpd-debian-arm
+    environment:
+      SMTP_SERVER: "mail.example.com"
+      SMTP_USERNAME: "user@example.com"
+      SMTP_PASSWORD: "mySuperS3cretPassword1234"
+      MAIL_TO: "user@example.com"
+      ALIAS_NAME: "eric"
