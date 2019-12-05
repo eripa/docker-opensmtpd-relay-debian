@@ -1,7 +1,6 @@
-FROM debian:jessie
+FROM debian:buster
 MAINTAINER Eric Ripa <eric@ripa.io>
 
-RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
 RUN apt-get -q update \
     && apt-get -qy dist-upgrade \
     && apt-get -qy install opensmtpd \
